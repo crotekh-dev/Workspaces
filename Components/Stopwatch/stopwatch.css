@@ -1,0 +1,851 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+}
+
+:root {
+  --primary-txt: #0a0a0a;
+  --secondary-txt: #18181b;
+  --primary-bg: #f1f5f9;
+  --secondary-bg: #fafafa;
+  --border: #2a2a2a;
+  --accent: #0a682c;
+}
+
+.dark-mode {
+  --primary-bg: #0a0a0a;
+  --secondary-bg: #18181b;
+  --primary-txt: #f1f5f9;
+  --secondary-txt: #fafafa;
+  --border: #fdfdfd;
+  --accent: #0a682c;
+}
+
+.sw-wrap {
+  width: min(1100px, calc(100% - 2rem));
+  margin: 1rem auto 1.4rem;
+}
+
+.sw-intro h2 {
+  color: var(--primary-txt);
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.sw-intro h2::first-letter {
+  color: var(--accent);
+}
+
+.sw-intro p {
+  margin: 0.35rem 0 1rem;
+  color: var(--secondary-txt);
+  opacity: 0.7;
+  font-weight: 500;
+}
+
+.sw-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.9rem;
+}
+
+.sw-tab,
+.sw-btn,
+.timer-presets button {
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.sw-tab {
+  border-radius: 12px;
+  padding: 0.55rem 0.9rem;
+  background: var(--secondary-bg);
+  color: var(--secondary-txt);
+  font-weight: 650;
+  font-size: 0.88rem;
+}
+
+.sw-tab.active {
+  background: var(--accent);
+  color: #f7fff8;
+}
+
+.sw-app {
+  background: var(--secondary-bg);
+  border-radius: 22px;
+  padding: 1.1rem;
+  box-shadow: 0 10px 30px rgba(10, 10, 10, 0.06);
+}
+
+.sw-panel {
+  display: none;
+}
+
+.sw-panel.active {
+  display: block;
+}
+
+.stopwatch-root {
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  text-align: center;
+  border: 1.5px dashed color-mix(in srgb, var(--accent) 35%, transparent);
+  border-radius: 18px;
+  padding: 1.4rem 1rem;
+}
+
+.sw-placeholder-kicker {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.sw-placeholder-time {
+  font-size: clamp(2rem, 7vw, 3.4rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--primary-txt);
+}
+
+.sw-placeholder-note {
+  max-width: 28rem;
+  color: var(--secondary-txt);
+  opacity: 0.65;
+}
+.stopwatch-slot {
+  text-align: center;
+  padding: 40px 0;
+  color: var(--primary-txt);
+}
+.stopwatch-slot h1 {
+  margin-top: 1.5rem;
+  font-size: 3.5rem;
+  font-weight: 400;
+  font-family: "Courier New", Courier, monospace;
+}
+.stopwatch-slot .buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.buttons .fa-solid {
+  font-size: 1.4rem;
+  margin: 2rem;
+  border-radius: 50%;
+  border: solid 1px;
+  width: 4rem;
+  height: 4rem;
+  padding-top: 1.25rem;
+  padding-left: 1.25rem;
+  display: flex;
+}
+.buttons .fa-play {
+  background-color: var(--accent);
+}
+.timer-card {
+  width: min(420px, 100%);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.timer-display {
+  font-size: clamp(2.3rem, 8vw, 3.6rem);
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  color: var(--primary-txt);
+}
+
+.timer-track {
+  height: 10px;
+  margin: 0.9rem 0 0.55rem;
+  border-radius: 999px;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--accent) 12%, var(--primary-bg));
+}
+
+.timer-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--accent);
+  transition: width 0.2s linear;
+}
+
+.timer-status {
+  color: var(--secondary-txt);
+  opacity: 0.7;
+  margin-bottom: 1rem;
+  font-size: 0.88rem;
+}
+
+.timer-inputs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.55rem;
+  margin-bottom: 0.7rem;
+}
+
+.timer-inputs label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--secondary-txt);
+}
+
+.timer-inputs input,
+.alarm-form input {
+  width: 100%;
+  border-radius: 12px;
+  border: 1.5px solid color-mix(in srgb, var(--accent) 22%, transparent);
+  background: var(--primary-bg);
+  color: var(--primary-txt);
+  padding: 0.7rem 0.6rem;
+  font: inherit;
+  outline: none;
+}
+
+.timer-presets,
+.timer-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.45rem;
+}
+
+.timer-presets {
+  margin-bottom: 0.85rem;
+}
+
+.timer-presets button,
+.sw-btn {
+  border-radius: 12px;
+  padding: 0.55rem 0.85rem;
+  background: var(--primary-bg);
+  color: var(--secondary-txt);
+  font-weight: 650;
+}
+
+.sw-btn.primary,
+.timer-presets button:hover {
+  background: var(--accent);
+  color: #f7fff8;
+}
+
+.alarm-form {
+  display: grid;
+  grid-template-columns: 140px 1fr auto;
+  gap: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.sw-btn.primary {
+  min-width: 48px;
+}
+
+.alarm-list-wrap {
+  max-height: min(48svh, 420px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 1.5rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.alarm-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.alarm-item {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 0.55rem;
+  align-items: center;
+  background: var(--accent);
+  color: #f7fff8;
+  border-radius: 16px;
+  padding: 0.9rem 1rem;
+}
+
+.alarm-item.off {
+  opacity: 0.55;
+}
+
+.alarm-item strong {
+  display: block;
+  font-size: 1.15rem;
+}
+
+.alarm-item span {
+  font-size: 0.78rem;
+  opacity: 0.85;
+}
+
+.alarm-item button {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  cursor: pointer;
+}
+
+.sw-toast {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  background: var(--accent);
+  color: #f7fff8;
+  padding: 0.75rem 0.95rem;
+  border-radius: 12px;
+  z-index: 70;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: 0.25s ease;
+}
+
+.sw-toast.show {
+  opacity: 1;
+  transform: none;
+}
+
+@media (max-width: 768px) {
+  .sw-wrap {
+    width: calc(100% - 1.5rem);
+  }
+
+  .sw-tab {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+
+  .alarm-form {
+    grid-template-columns: 1fr auto;
+  }
+
+  .alarm-form input[type="time"] {
+    grid-column: 1 / -1;
+  }
+
+  .alarm-list-wrap {
+    max-height: min(42svh, 360px);
+  }
+}
+
+@media (max-width: 480px) {
+  .sw-wrap {
+    width: calc(100% - 1.2rem);
+  }
+
+  .sw-app {
+    padding: 0.9rem;
+    border-radius: 18px;
+  }
+
+  .timer-actions,
+  .timer-presets {
+    width: 100%;
+  }
+
+  .timer-actions .sw-btn,
+  .timer-presets button {
+    flex: 1 1 calc(33% - 0.45rem);
+  }
+}
+
+@media (max-width: 360px) {
+  .sw-wrap {
+    width: calc(100% - 0.9rem);
+  }
+
+  .timer-inputs {
+    gap: 0.35rem;
+  }
+
+  .alarm-item {
+    grid-template-columns: 1fr auto;
+  }
+
+  .alarm-list-wrap {
+    max-height: 38svh;
+    padding-bottom: 2rem;
+  }
+}
+
+.time-page {
+  width: min(980px, calc(100% - 2rem));
+  margin: 1.2rem auto 2rem;
+}
+.time-intro {
+  background: var(--secondary-bg);
+  border-radius: 20px;
+  padding: 1rem 1.15rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 10px 30px rgba(10, 10, 10, 0.06);
+}
+.time-intro h2 {
+  color: var(--primary-txt);
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-weight: 800;
+  letter-spacing: -0.05em;
+}
+.time-intro h2::first-letter {
+  color: var(--accent);
+}
+.time-intro p {
+  margin-top: 0.35rem;
+  color: var(--secondary-txt);
+  opacity: 0.65;
+}
+.time-app {
+  background: var(--secondary-bg);
+  border-radius: 22px;
+  padding: 1.1rem;
+  box-shadow: 0 10px 30px rgba(10, 10, 10, 0.06);
+}
+.time-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.time-tab,
+.mini-chip,
+.main-btn,
+.ghost-btn,
+.icon-btn {
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+.time-tab {
+  flex: 1 1 120px;
+  border-radius: 12px;
+  padding: 0.7rem 0.8rem;
+  background: var(--primary-bg);
+  color: var(--secondary-txt);
+  font-weight: 700;
+}
+.time-tab.active {
+  background: var(--accent);
+  color: #f7fff8;
+}
+.time-panel.hidden {
+  display: none;
+}
+.stopwatch-slot,
+.timer-card {
+  border-radius: 18px;
+  background: color-mix(in srgb, var(--accent) 8%, var(--primary-bg));
+  border: 1px solid color-mix(in srgb, var(--accent) 16%, transparent);
+  padding: 1.1rem;
+}
+.slot-note {
+  text-align: center;
+  color: var(--primary-txt);
+  padding: 1.4rem 0.5rem;
+}
+.slot-note i {
+  color: var(--accent);
+  font-size: 1.6rem;
+}
+.slot-note h3 {
+  margin: 0.6rem 0 0.35rem;
+}
+.slot-note p,
+.timer-status,
+.empty-alarms {
+  color: var(--secondary-txt);
+  opacity: 0.7;
+}
+.panel-kicker {
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.timer-display {
+  margin: 0.35rem 0 0.8rem;
+  color: var(--primary-txt);
+  font-size: clamp(2.2rem, 8vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  text-align: center;
+}
+.timer-track {
+  height: 10px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--accent) 14%, var(--secondary-bg));
+  margin-bottom: 1rem;
+}
+.timer-fill {
+  height: 100%;
+  width: 100%;
+  background: var(--accent);
+}
+.timer-inputs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.55rem;
+}
+.timer-inputs label,
+.daily-toggle {
+  color: var(--secondary-txt);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+.timer-inputs input,
+.alarm-form input[type="time"],
+.alarm-form input[type="text"] {
+  width: 100%;
+  margin-top: 0.28rem;
+  border: 1.5px solid color-mix(in srgb, var(--accent) 22%, transparent);
+  background: var(--secondary-bg);
+  color: var(--primary-txt);
+  border-radius: 12px;
+  padding: 0.7rem;
+  font: inherit;
+}
+.preset-row,
+.timer-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.8rem;
+}
+.mini-chip,
+.ghost-btn {
+  border-radius: 11px;
+  padding: 0.5rem 0.75rem;
+  background: var(--primary-bg);
+  color: var(--secondary-txt);
+  font-weight: 700;
+}
+.main-btn {
+  border-radius: 12px;
+  padding: 0.7rem 1rem;
+  background: var(--accent);
+  color: #f7fff8;
+  font-weight: 800;
+}
+.timer-status {
+  margin-top: 0.75rem;
+  text-align: center;
+}
+.alarm-form {
+  display: grid;
+  grid-template-columns: 140px 1fr auto auto;
+  gap: 0.55rem;
+  align-items: end;
+  margin-bottom: 0.85rem;
+}
+.daily-toggle {
+  display: flex;
+  gap: 0.35rem;
+  align-items: center;
+  padding-bottom: 0.7rem;
+}
+.alarm-list-wrap {
+  max-height: min(48vh, 430px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-bottom: 2.5rem;
+  -webkit-overflow-scrolling: touch;
+}
+#alarmList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.alarm-card {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 0.7rem;
+  align-items: center;
+  background: var(--accent);
+  color: #f7fff8;
+  border-radius: 16px;
+  padding: 0.9rem 1rem;
+}
+.alarm-card.off {
+  opacity: 0.58;
+}
+.alarm-card h4 {
+  font-size: 1.15rem;
+}
+.alarm-card p {
+  opacity: 0.8;
+  font-size: 0.8rem;
+}
+.icon-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.14);
+  color: #f7fff8;
+}
+.empty-alarms {
+  text-align: center;
+  padding: 1.2rem 0.4rem;
+}
+.ring-banner,
+.sw-toast {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  background: var(--accent);
+  color: #f7fff8;
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  z-index: 40;
+  opacity: 0;
+  pointer-events: none;
+}
+.ring-banner.show,
+.sw-toast.show {
+  opacity: 1;
+}
+@media (max-width: 768px) {
+  .time-page {
+    width: calc(100% - 1.5rem);
+  }
+  .alarm-form {
+    grid-template-columns: 1fr 1fr;
+  }
+  .alarm-form .main-btn,
+  .daily-toggle {
+    grid-column: 1 / -1;
+  }
+}
+@media (max-width: 480px) {
+  .time-page {
+    width: calc(100% - 1.2rem);
+  }
+  .timer-inputs {
+    grid-template-columns: 1fr;
+  }
+  .alarm-card {
+    grid-template-columns: 1fr auto;
+  }
+}
+@media (max-width: 360px) {
+  .time-page {
+    width: calc(100% - 0.9rem);
+  }
+  .time-tab {
+    flex-basis: 100%;
+  }
+  .alarm-list-wrap {
+    max-height: 38vh;
+    padding-bottom: 3rem;
+  }
+}
+
+/* Keep Time Tools from being cropped by the workspace shell */
+body.time-tools-page,
+body.time-tools-page .container,
+body.time-tools-page main {
+  height: auto !important;
+  max-height: none !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  min-height: 0;
+}
+
+.time-page,
+.time-app,
+.time-panel,
+.stopwatch-slot,
+.timer-card,
+.sw-wrap,
+.sw-app,
+.sw-panel {
+  height: auto;
+  max-height: none;
+  overflow: visible;
+}
+
+.time-page {
+  width: min(980px, calc(100% - 2rem));
+  margin: 1rem auto 0;
+  padding-bottom: 4.5rem;
+}
+
+.alarm-list-wrap {
+  max-height: min(42vh, 380px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-bottom: 2.75rem;
+}
+
+body.time-tools-page,
+body.time-tools-page main,
+body.time-tools-page .container,
+.alarm-list-wrap {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--accent) 55%, transparent)
+    transparent;
+}
+
+body.time-tools-page::-webkit-scrollbar,
+body.time-tools-page main::-webkit-scrollbar,
+body.time-tools-page .container::-webkit-scrollbar,
+.alarm-list-wrap::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+body.time-tools-page::-webkit-scrollbar-button,
+body.time-tools-page main::-webkit-scrollbar-button,
+body.time-tools-page .container::-webkit-scrollbar-button,
+.alarm-list-wrap::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+body.time-tools-page::-webkit-scrollbar-track,
+body.time-tools-page main::-webkit-scrollbar-track,
+body.time-tools-page .container::-webkit-scrollbar-track,
+.alarm-list-wrap::-webkit-scrollbar-track {
+  background: transparent;
+  border: none;
+}
+
+body.time-tools-page::-webkit-scrollbar-thumb,
+body.time-tools-page main::-webkit-scrollbar-thumb,
+body.time-tools-page .container::-webkit-scrollbar-thumb,
+.alarm-list-wrap::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--accent) 55%, transparent);
+  border-radius: 99px;
+  border: none;
+}
+
+body.time-tools-page::-webkit-scrollbar-corner,
+body.time-tools-page main::-webkit-scrollbar-corner,
+body.time-tools-page .container::-webkit-scrollbar-corner,
+.alarm-list-wrap::-webkit-scrollbar-corner {
+  background: transparent;
+  border: none;
+}
+
+html,
+body {
+  scrollbar-width: thin;
+  scrollbar-color: #9ca3af transparent;
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 6px;
+}
+html::-webkit-scrollbar-button,
+body::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
+  background: transparent;
+  border: none;
+}
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+  background: #9ca3af;
+  border-radius: 99px;
+  border-radius: none;
+}
+@media (max-width: 768px) {
+  .time-page {
+    padding-bottom: 5rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .alarm-list-wrap {
+    max-height: 34vh;
+    padding-bottom: 3rem;
+  }
+}
+
+@media (max-width: 446px) {
+  
+  #stopwatchRoot {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: 1.25rem 0.5rem;
+    overflow: hidden;
+  }
+
+  #displayTime {
+    width: 100%;
+    max-width: 100%;
+    margin: 0.75rem 0 1rem;
+    font-size: clamp(1.6rem, 8vw, 2.5rem);
+    letter-spacing: -0.04em;
+    white-space: nowrap;
+    text-align: center;
+  }
+
+  #stopwatchRoot .buttons {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(0.5rem, 4vw, 1rem);
+    margin: 0;
+    padding: 0;
+  }
+
+  #stopwatchRoot .buttons .fa-solid {
+    flex: 0 0 3rem;
+    width: 3rem;
+    height: 3rem;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    border-radius: 50%;
+    box-sizing: border-box;
+  }
+
+  /* Keep the stopwatch card within the available width */
+  .time-page,
+  .time-app,
+  #panel-stopwatch {
+    min-width: 0;
+    max-width: 100%;
+  }
+}

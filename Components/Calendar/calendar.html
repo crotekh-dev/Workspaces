@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="stylesheet" href="../../fontawesome-free-7.2.0-web/fontawesome-free-7.2.0-web/css/all.min.css" />
+    <link rel="shortcut icon" href="../../Assets/icon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="../Clock/clock.css" />
+    <link rel="stylesheet" href="calendar.css" />
+    <script src="../Clock/clock.js" defer></script>
+    <script src="../../app.js" defer></script>
+    <script src="calendar.js" defer></script>
+    <title>Calendar | Workspaces</title>
+      <link rel="manifest" href="../../manifest.webmanifest" />
+    <meta name="theme-color" content="#0a682c" />
+  </head>
+  <body>
+    <div class="workspace-splash" id="workspaceSplash">
+      <div class="splash-content">
+        <div class="splash-icon">
+          <img src="../../Assets/big-img.png" alt="Workspace" />
+        </div>
+        <h1>Work smarter.<br />Stay focused.</h1>
+        <p>Your space to think, organize and get things done.</p>
+        <div class="splash-loader"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+
+    <div class="container">
+      <header class="workspace-header">
+        <div class="header-left">
+          <button class="menu-btn" onclick="toggleMenu()" aria-label="Open menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div class="logo">
+            <img src="../../Assets/icon.png" alt="" width="40" height="40" />
+            <span>WORKSPACES</span>
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="clock">
+            <ul>
+              <i class="fa-regular fa-clock"></i>
+              <li id="hours"></li><li id="point">:</li><li id="mins"></li>
+              <li id="point">:</li><li id="sec"></li><li id="day"></li>
+              <div class="vertical"></div>
+              <div id="date">
+                <i class="fa-regular fa-calendar-days"></i>
+                <div id="Date"></div>
+              </div>
+            </ul>
+          </div>
+          <button class="header-icon-btn" title="Notifications" aria-label="Notifications">
+            <i class="fa-solid fa-bell"></i><span class="notification-dot"></span>
+          </button>
+          <button class="theme-toggle-btn" id="theme-switch" title="Toggle theme" aria-label="Toggle theme">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+          <div class="user-avatar">R</div>
+        </div>
+      </header>
+
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <h2>Workspaces</h2><i class="fa-solid fa-ellipsis-vertical"></i>
+        </div>
+        <ul class="sidebar-content">
+          <li>
+            <a href="../../index.html" class="sidebar-item"><span>Notes</span><i class="fa-solid fa-note-sticky"></i></a>
+            <a href="../Todo/todo.html" class="sidebar-item"><span>Todo</span><i class="fa-solid fa-list-check"></i></a>
+            <a href="../Stopwatch/stopwatch.html" class="sidebar-item"><span>Stopwatch</span><i class="fa-solid fa-stopwatch"></i></a>
+            <a href="../Calendar/calendar.html" class="sidebar-item active" aria-current="page"><span>Calendar</span><i class="fa-solid fa-calendar-days"></i></a>
+            <a href="../Calculator/calculator.html" class="sidebar-item"><span>Calculator</span><i class="fa-solid fa-calculator"></i></a>
+            <a href="../Links/links.html" class="sidebar-item"><span>Links</span><i class="fa-solid fa-link"></i></a>
+          </li>
+        </ul>
+        <hr />
+        <ul class="sidebar-footer">
+          <li>
+            <a href="../../Components/About/about.html" class="sidebar-item"><span>About</span><i class="fa-solid fa-circle-info"></i></a>
+            <a href="../../Components/Forms/bug-report.html" class="sidebar-item"><span>Report a Bug</span><i class="fa-solid fa-bug"></i></a>
+            <a href="../../Components/Forms/feature-suggest.html" class="sidebar-item"><span>Suggest a new Feature</span><i class="fa-solid fa-lightbulb"></i></a>
+            <a href="../../Components/Forms/contact.html" class="sidebar-item"><span>Contact Developer</span><i class="fa-solid fa-envelope"></i></a>
+          </li>
+        </ul>
+        <div class="motivational-quote">
+          <img src="" alt="" />
+          <h3>Stay Productive 🚀</h3>
+          <h4>Organize and plan your day with purpose</h4>
+        </div>
+      </aside>
+
+      <main>
+        <div class="welcome-section">
+          <div class="welcome-content">
+            <h2 class="welcome-greeting">Good morning, <span id="welcomeName"></span> 👋</h2>
+            <p class="welcome-message" id="welcomeMessage"></p>
+          </div>
+          <div class="welcome-icon"><i class="fa-solid fa-sun"></i></div>
+        </div>
+
+        <section class="ws-calendar" id="wsCalendar" aria-label="Calendar">
+          <div class="ws-cal-heading">
+            <div>
+              <p class="ws-eyebrow"><i class="fa-regular fa-calendar"></i> YOUR SCHEDULE</p>
+              <h1>Calendar <span class="ws-live-dot"></span></h1>
+              <p class="ws-cal-subtitle">Make room for what matters.</p>
+            </div>
+            <button class="ws-btn ws-btn-primary" id="wsAddEventTop"><i class="fa-solid fa-plus"></i><span>New event</span></button>
+          </div>
+
+          <div class="ws-cal-toolbar">
+            <div class="ws-cal-month-nav">
+              <button class="ws-icon-btn" id="wsPrevMonth" aria-label="Previous month" title="Previous month"><i class="fa-solid fa-chevron-left"></i></button>
+              <button class="ws-icon-btn" id="wsNextMonth" aria-label="Next month" title="Next month"><i class="fa-solid fa-chevron-right"></i></button>
+              <button class="ws-btn ws-btn-soft" id="wsToday">Today</button>
+              <h2 id="wsMonthTitle" aria-live="polite">Month Year</h2>
+            </div>
+            <div class="ws-cal-tools">
+              <label class="ws-search"><i class="fa-solid fa-magnifying-glass"></i><input id="wsEventSearch" type="search" placeholder="Search events…" aria-label="Search events" /></label>
+              <label class="ws-select-wrap"><span class="ws-sr-only">Calendar view</span><select id="wsViewSelect" aria-label="Calendar view"><option value="month">Month</option><option value="week">Week</option><option value="agenda">Agenda</option></select></label>
+            </div>
+          </div>
+
+          <div class="ws-cal-layout">
+            <section class="ws-cal-main-card" aria-label="Calendar dates">
+              <div class="ws-weekdays" aria-hidden="true">
+                <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+              </div>
+              <div class="ws-date-grid" id="wsDateGrid" role="grid" aria-label="Dates in selected period"></div>
+              <div class="ws-cal-legend">
+                <span><i class="ws-legend-dot ws-dot-event"></i> Events</span>
+                <span><i class="ws-legend-dot ws-dot-today"></i> Today</span>
+                <span class="ws-local-note"><i class="fa-solid fa-lock"></i> Saved on this device</span>
+              </div>
+            </section>
+
+            <aside class="ws-cal-side">
+              <section class="ws-side-card ws-selected-card">
+                <div class="ws-side-card-heading">
+                  <div><p class="ws-eyebrow">SELECTED DAY</p><h3 id="wsSelectedHeading">Today</h3></div>
+                  <button class="ws-icon-btn ws-small-icon" id="wsAddSelected" aria-label="Add event for selected day" title="Add event"><i class="fa-solid fa-plus"></i></button>
+                </div>
+                <div class="ws-selected-date" id="wsSelectedDate"></div>
+                <div class="ws-day-events" id="wsDayEvents"></div>
+              </section>
+
+              <section class="ws-side-card">
+                <div class="ws-side-card-heading">
+                  <div><p class="ws-eyebrow">COMING UP</p><h3>Next events</h3></div>
+                  <i class="fa-solid fa-arrow-trend-up ws-muted-icon"></i>
+                </div>
+                <div class="ws-upcoming-list" id="wsUpcomingList"></div>
+              </section>
+
+              <section class="ws-side-card ws-quick-card">
+                <div class="ws-side-card-heading"><div><p class="ws-eyebrow">QUICK TOOLS</p><h3>Stay organized</h3></div></div>
+                <button class="ws-quick-action" id="wsJumpDate"><span class="ws-quick-icon"><i class="fa-solid fa-calendar-day"></i></span><span><b>Jump to date</b><small>Go to any day</small></span><i class="fa-solid fa-chevron-right"></i></button>
+                <button class="ws-quick-action" id="wsExportEvents"><span class="ws-quick-icon"><i class="fa-solid fa-file-arrow-down"></i></span><span><b>Export events</b><small>Download an .ics calendar</small></span><i class="fa-solid fa-chevron-right"></i></button>
+                <button class="ws-quick-action" id="wsClearSearch"><span class="ws-quick-icon"><i class="fa-solid fa-filter-circle-xmark"></i></span><span><b>Clear filters</b><small>Show all events</small></span><i class="fa-solid fa-chevron-right"></i></button>
+              </section>
+            </aside>
+          </div>
+          <p class="ws-cal-footer"><i class="fa-solid fa-shield-halved"></i> Your calendar works offline. Events stay in this browser on this device.</p>
+        </section>
+      </main>
+    </div>
+
+    <dialog class="ws-event-dialog" id="wsEventDialog" aria-labelledby="wsDialogTitle">
+      <form id="wsEventForm" class="ws-event-form">
+        <div class="ws-dialog-heading">
+          <div><p class="ws-eyebrow">CALENDAR EVENT</p><h2 id="wsDialogTitle">Create an event</h2></div>
+          <button type="button" class="ws-icon-btn" id="wsCloseDialog" aria-label="Close dialog"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <label class="ws-field">Event title<input id="wsEventTitle" name="title" maxlength="100" placeholder="e.g. Study session" required /></label>
+        <div class="ws-field-row">
+          <label class="ws-field">Date<input id="wsEventDate" name="date" type="date" required /></label>
+          <label class="ws-field">Start time<input id="wsEventTime" name="time" type="time" value="09:00" /></label>
+        </div>
+        <label class="ws-field">Category
+          <select id="wsEventCategory" name="category">
+            <option value="personal">Personal</option><option value="work">Work</option><option value="study">Study</option><option value="health">Health</option><option value="other">Other</option>
+          </select>
+        </label>
+        <label class="ws-field">Notes <span class="ws-optional">Optional</span><textarea id="wsEventNotes" name="notes" rows="3" maxlength="500" placeholder="Add a little detail…"></textarea></label>
+        <div class="ws-dialog-actions">
+          <button type="button" class="ws-btn ws-btn-danger" id="wsDeleteEvent" hidden><i class="fa-regular fa-trash-can"></i> Delete</button>
+          <span class="ws-dialog-spacer"></span>
+          <button type="button" class="ws-btn ws-btn-soft" id="wsCancelDialog">Cancel</button>
+          <button type="submit" class="ws-btn ws-btn-primary" id="wsSaveEvent"><i class="fa-solid fa-check"></i> Save event</button>
+        </div>
+        <p class="ws-form-feedback" id="wsFormFeedback" role="status"></p>
+      </form>
+    </dialog>
+
+    <dialog class="ws-event-dialog ws-jump-dialog" id="wsJumpDialog" aria-labelledby="wsJumpTitle">
+      <form id="wsJumpForm" class="ws-event-form">
+        <div class="ws-dialog-heading">
+          <div><p class="ws-eyebrow">QUICK NAVIGATION</p><h2 id="wsJumpTitle">Jump to a date</h2></div>
+          <button type="button" class="ws-icon-btn" id="wsCloseJump" aria-label="Close dialog"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <label class="ws-field">Choose a date<input id="wsJumpInput" type="date" required /></label>
+        <div class="ws-dialog-actions"><span class="ws-dialog-spacer"></span><button type="button" class="ws-btn ws-btn-soft" id="wsCancelJump">Cancel</button><button type="submit" class="ws-btn ws-btn-primary">Go to date</button></div>
+      </form>
+    </dialog>
+    <div class="ws-toast" id="wsToast" role="status" aria-live="polite"></div>
+  </body>
+</html>

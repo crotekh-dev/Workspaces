@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../style.css" />
+    <link
+      rel="stylesheet"
+      href="../../fontawesome-free-7.2.0-web/fontawesome-free-7.2.0-web/css/all.min.css"
+    />
+    <link
+      rel="shortcut icon"
+      href="../../Assets/icon.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="../Clock/clock.css" />
+    <script src="../Clock/clock.js" defer></script>
+    <link rel="stylesheet" href="./stopwatch.css" />
+    <script src="./stopwatch.js" defer></script>
+    <script src="../../app.js" defer></script>
+    <title>Workspaces</title>
+      <link rel="manifest" href="../../manifest.webmanifest" />
+    <meta name="theme-color" content="#0a682c" />
+  </head>
+  <body>
+    <div class="workspace-splash" id="workspaceSplash">
+      <div class="splash-content">
+        <div class="splash-icon">
+          <img src="../../Assets/big-img.png" alt="Workspace" />
+        </div>
+
+        <h1>Work smarter.<br />Stay focused.</h1>
+
+        <p>Your space to think, organize and get things done.</p>
+
+        <div class="splash-loader">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <header class="workspace-header">
+        <div class="header-left">
+          <button class="menu-btn" onclick="toggleMenu()">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div class="logo">
+            
+            <img src="../../Assets/icon.png" alt="" width="40" height="40" />
+            <span>WORKSPACES</span>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <div class="clock">
+            <ul>
+              <i class="fa-regular fa-clock"></i>
+              <li id="hours"></li>
+              <li id="point">:</li>
+              <li id="mins"></li>
+              <li id="point">:</li>
+              <li id="sec"></li>
+              <li id="day"></li>
+              <div class="vertical"></div>
+              <div id="date">
+                <i class="fa-regular fa-calendar-days"></i>
+                <div id="Date"></div>
+              </div>
+            </ul>
+          </div>
+          <button class="header-icon-btn" title="Notifications">
+            <i class="fa-solid fa-bell"></i>
+            <span class="notification-dot"></span>
+          </button>
+          <button
+            class="theme-toggle-btn"
+            id="theme-switch"
+            title="Toggle theme"
+          >
+            <i class="fa-solid fa-moon"></i>
+          </button>
+          <div class="user-avatar">R</div>
+        </div>
+      </header>
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <h2>Workspaces</h2>
+          <i class="fa-solid fa-ellipsis-vertical"></i>
+        </div>
+        <ul class="sidebar-content">
+          <li class="">
+            <a href="../../index.html" class="sidebar-item"
+              ><span>Notes</span><i class="fa-solid fa-note-sticky"></i
+            ></a>
+            <a href="../Todo/todo.html" class="sidebar-item"
+              ><span>Todo</span><i class="fa-solid fa-list-check"></i
+            ></a>
+            <a href="../Stopwatch/stopwatch.html" class="sidebar-item"
+              ><span>Stopwatch</span><i class="fa-solid fa-stopwatch"></i
+            ></a>
+            <a href="../Calendar/calendar.html" class="sidebar-item"
+              ><span>Calendar</span><i class="fa-solid fa-calendar-days"></i
+            ></a>
+            <a href="../Calculator/calculator.html" class="sidebar-item"
+              ><span>Calculator</span><i class="fa-solid fa-calculator"></i
+            ></a>
+            <a href="../Links/links.html" class="sidebar-item"
+              ><span>Links</span><i class="fa-solid fa-link"></i
+            ></a>
+          </li>
+        </ul>
+        <hr />
+        <ul class="sidebar-footer">
+          <li class="">
+            <a href="../../Components/About/about.html" class="sidebar-item"
+              ><span>About</span><i class="fa-solid fa-circle-info"></i
+            ></a>
+            <a
+              href="../../Components/Forms/bug-report.html"
+              class="sidebar-item"
+              ><span>Report a Bug</span><i class="fa-solid fa-bug"></i
+            ></a>
+            <a
+              href="../../Components/Forms/feature-suggest.html"
+              class="sidebar-item"
+              ><span>Suggest a new Feature</span
+              ><i class="fa-solid fa-lightbulb"></i
+            ></a>
+            <a href="../../Components/Forms/contact.html" class="sidebar-item"
+              ><span>Contact Developer</span><i class="fa-solid fa-envelope"></i
+            ></a>
+          </li>
+        </ul>
+        <div class="motivational-quote">
+          <img src="" alt="" />
+          <h3>Stay Productive 🚀</h3>
+          <h4>Organize and plan your day with purpose</h4>
+        </div>
+      </aside>
+      <main>
+        <div class="welcome-section">
+          <div class="welcome-content">
+            <h2 class="welcome-greeting">
+              Good morning, <span id="welcomeName"></span> 👋
+            </h2>
+
+            <p class="welcome-message" id="welcomeMessage"></p>
+          </div>
+
+          <div class="welcome-icon">
+            <i class="fa-solid fa-sun"></i>
+          </div>
+        </div>
+      </main>
+      <div class="time-page">
+        <div class="time-intro">
+          <h2>Time Management Tools</h2>
+          <p>Plan your time. Get more done.</p>
+        </div>
+
+        <div class="time-app">
+          <div class="time-tabs" role="tablist">
+            <button class="time-tab active" data-view="stopwatch" type="button">
+              <i class="fa-solid fa-stopwatch"></i> Stopwatch
+            </button>
+            <button class="time-tab" data-view="timer" type="button">
+              <i class="fa-regular fa-hourglass-half"></i> Timer
+            </button>
+            <button class="time-tab" data-view="alarm" type="button">
+              <i class="fa-solid fa-bell"></i> Alarm
+            </button>
+          </div>
+
+          <section class="time-panel" id="panel-stopwatch">
+            <div id="stopwatchRoot" class="stopwatch-slot">
+              <h1 id="displayTime">00:00:00</h1>
+              <div class="buttons">
+                <i class="fa-solid fa-stop" onclick="watchStop()"></i>
+                <i class="fa-solid fa-play" onclick="watchStart()"></i>
+                <i
+                  class="fa-solid fa-arrow-rotate-left"
+                  onclick="watchReset()"
+                ></i>
+              </div>
+            </div>
+          </section>
+
+          <section class="time-panel hidden" id="panel-timer">
+            <div class="timer-card">
+              <p class="panel-kicker">Countdown</p>
+              <div class="timer-display" id="timerDisplay">00:05:00</div>
+              <div class="timer-track">
+                <div class="timer-fill" id="timerFill"></div>
+              </div>
+              <div class="timer-inputs">
+                <label
+                  >Hrs<input
+                    id="timerHours"
+                    type="number"
+                    min="0"
+                    max="23"
+                    value="0"
+                /></label>
+                <label
+                  >Min<input
+                    id="timerMinutes"
+                    type="number"
+                    min="0"
+                    max="59"
+                    value="5"
+                /></label>
+                <label
+                  >Sec<input
+                    id="timerSeconds"
+                    type="number"
+                    min="0"
+                    max="59"
+                    value="0"
+                /></label>
+              </div>
+              <div class="preset-row">
+                <button class="mini-chip" data-preset="60" type="button">
+                  1m
+                </button>
+                <button class="mini-chip" data-preset="300" type="button">
+                  5m
+                </button>
+                <button class="mini-chip" data-preset="600" type="button">
+                  10m
+                </button>
+                <button class="mini-chip" data-preset="1500" type="button">
+                  25m
+                </button>
+              </div>
+              <div class="timer-actions">
+                <button class="main-btn" id="timerStart" type="button">
+                  Start
+                </button>
+                <button class="ghost-btn" id="timerPause" type="button">
+                  Pause
+                </button>
+                <button class="ghost-btn" id="timerReset" type="button">
+                  Reset
+                </button>
+              </div>
+              <p class="timer-status" id="timerStatus">
+                Set a time and press Start.
+              </p>
+            </div>
+          </section>
+
+          <section class="time-panel hidden" id="panel-alarm">
+            <form class="alarm-form" id="alarmForm">
+              <input id="alarmTime" type="time" required />
+              <input
+                id="alarmLabel"
+                type="text"
+                maxlength="40"
+                placeholder="Alarm label"
+              />
+              <label class="daily-toggle"
+                ><input id="alarmDaily" type="checkbox" /> Daily</label
+              >
+              <button class="main-btn" type="submit">Add</button>
+            </form>
+            <div class="alarm-list-wrap">
+              <ul id="alarmList"></ul>
+              <p class="empty-alarms" id="alarmEmpty">
+                No alarms yet. Add one above.
+              </p>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="../../style.css" />
+
+    <link
+      rel="stylesheet"
+      href="../../fontawesome-free-7.2.0-web/fontawesome-free-7.2.0-web/css/all.min.css"
+    />
+
+    <link
+      rel="shortcut icon"
+      href="../../Assets/icon.png"
+      type="image/x-icon"
+    />
+
+    <link rel="stylesheet" href="../Clock/clock.css" />
+    <script src="../Clock/clock.js" defer></script>
+
+    <link rel="stylesheet" href="./links.css" />
+    <script src="./links.js" defer></script>
+
+    <script src="../../app.js" defer></script>
+
+    <title>Workspaces</title>
+      <link rel="manifest" href="../../manifest.webmanifest" />
+    <meta name="theme-color" content="#0a682c" />
+  </head>
+
+  <body>
+
+    <div class="workspace-splash" id="workspaceSplash">
+      <div class="splash-content">
+        <div class="splash-icon">
+          <img src="../../Assets/big-img.png" alt="Workspace" />
+        </div>
+
+        <h1>
+          Work smarter.<br />
+          Stay focused.
+        </h1>
+
+        <p>Your space to think, organize and get things done.</p>
+
+        <div class="splash-loader">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <header class="workspace-header">
+        <div class="header-left">
+          <button class="menu-btn" id="menu-btn" type="button">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+
+          <div class="logo">
+            <img
+              src="../../Assets/icon.png"
+              alt="Workspaces"
+              width="40"
+              height="40"
+            />
+
+            <span>WORKSPACES</span>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <div class="clock">
+            <ul>
+              <i class="fa-regular fa-clock"></i>
+
+              <li id="hours"></li>
+
+              <li id="point">:</li>
+
+              <li id="mins"></li>
+
+              <li id="point">:</li>
+
+              <li id="sec"></li>
+
+              <li id="day"></li>
+
+              <div class="vertical"></div>
+
+              <div id="date">
+                <i class="fa-regular fa-calendar-days"></i>
+
+                <div id="Date"></div>
+              </div>
+            </ul>
+          </div>
+
+          <button class="header-icon-btn" title="Notifications" type="button">
+            <i class="fa-solid fa-bell"></i>
+
+            <span class="notification-dot"></span>
+          </button>
+
+          <button
+            class="theme-toggle-btn"
+            id="theme-switch"
+            title="Toggle theme"
+            type="button"
+          >
+            <i class="fa-solid fa-moon"></i>
+          </button>
+
+          <div class="user-avatar">R</div>
+        </div>
+      </header>
+
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <h2>Workspaces</h2>
+
+          <i class="fa-solid fa-ellipsis-vertical"></i>
+        </div>
+
+        <ul class="sidebar-content">
+          <li>
+            <a href="../../index.html" class="sidebar-item">
+              <span>Notes</span>
+              <i class="fa-solid fa-note-sticky"></i>
+            </a>
+
+            <a href="../Todo/todo.html" class="sidebar-item">
+              <span>Todo</span>
+              <i class="fa-solid fa-list-check"></i>
+            </a>
+
+            <a href="../Stopwatch/stopwatch.html" class="sidebar-item">
+              <span>Stopwatch</span>
+              <i class="fa-solid fa-stopwatch"></i>
+            </a>
+
+            <a href="../Calendar/calendar.html" class="sidebar-item">
+              <span>Calendar</span>
+              <i class="fa-solid fa-calendar-days"></i>
+            </a>
+
+            <a href="../Calculator/calculator.html" class="sidebar-item">
+              <span>Calculator</span>
+              <i class="fa-solid fa-calculator"></i>
+            </a>
+
+            <a href="../Links/links.html" class="sidebar-item active">
+              <span>Links</span>
+              <i class="fa-solid fa-link"></i>
+            </a>
+          </li>
+        </ul>
+
+        <hr />
+
+        <ul class="sidebar-footer">
+          <li>
+            <a href="../../Components/About/about.html" class="sidebar-item">
+              <span>About</span>
+              <i class="fa-solid fa-circle-info"></i>
+            </a>
+
+            <a
+              href="../../Components/Forms/bug-report.html"
+              class="sidebar-item"
+            >
+              <span>Report a Bug</span>
+              <i class="fa-solid fa-bug"></i>
+            </a>
+
+            <a
+              href="../../Components/Forms/feature-suggest.html"
+              class="sidebar-item"
+            >
+              <span>Suggest a new Feature</span>
+              <i class="fa-solid fa-lightbulb"></i>
+            </a>
+
+            <a href="../../Components/Forms/contact.html" class="sidebar-item">
+              <span>Contact Developer</span>
+              <i class="fa-solid fa-envelope"></i>
+            </a>
+          </li>
+        </ul>
+
+        <div class="motivational-quote">
+          <img src="" alt="" />
+
+          <h3>Stay Productive 🚀</h3>
+
+          <h4>Organize and plan your day with purpose</h4>
+        </div>
+      </aside>
+
+      <main>
+        <div class="welcome-section">
+          <div class="welcome-content">
+            <h2 class="welcome-greeting">
+              Good morning,
+              <span id="welcomeName"></span>
+              👋
+            </h2>
+
+            <p class="welcome-message" id="welcomeMessage"></p>
+          </div>
+
+          <div class="welcome-icon">
+            <i class="fa-solid fa-sun"></i>
+          </div>
+        </div>
+      </main>
+
+      <div class="links-page links-main">
+
+        <section class="links-intro">
+          <div>
+            <span class="links-eyebrow">
+              <i class="fa-solid fa-link"></i>
+              Saved Resources
+            </span>
+
+            <h2>Your Links</h2>
+
+            <p>
+              Keep your important websites and resources organized in one place.
+            </p>
+          </div>
+
+          <button class="add-link-btn" id="addLinkBtn" type="button">
+            <i class="fa-solid fa-plus"></i>
+            <span>Add Link</span>
+          </button>
+        </section>
+
+        <section class="link-insights">
+          <div class="link-stat-card">
+            <div class="stat-icon">
+              <i class="fa-solid fa-link"></i>
+            </div>
+
+            <div>
+              <span class="stat-label">Total Links</span>
+              <strong id="totalLinks">0</strong>
+            </div>
+          </div>
+
+          <div class="link-stat-card">
+            <div class="stat-icon">
+              <i class="fa-solid fa-layer-group"></i>
+            </div>
+
+            <div>
+              <span class="stat-label">Categories</span>
+              <strong id="totalCategories">0</strong>
+            </div>
+          </div>
+
+          <div class="link-stat-card">
+            <div class="stat-icon">
+              <i class="fa-solid fa-calendar-day"></i>
+            </div>
+
+            <div>
+              <span class="stat-label">Added Today</span>
+              <strong id="recentLinks">0</strong>
+            </div>
+          </div>
+
+          <div class="link-stat-card">
+            <div class="stat-icon">
+              <i class="fa-solid fa-bolt"></i>
+            </div>
+
+            <div>
+              <span class="stat-label">Quick Access</span>
+              <strong>Ready</strong>
+            </div>
+          </div>
+        </section>
+
+        <section class="links-controls">
+          <div class="link-search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+              type="search"
+              id="searchLinks"
+              placeholder="Search links..."
+              autocomplete="off"
+            />
+          </div>
+
+          <div class="filter-tabs">
+            <button class="filter-btn active" data-filter="all" type="button">
+              <i class="fa-solid fa-layer-group"></i>
+              All
+            </button>
+
+            <button class="filter-btn" data-filter="work" type="button">
+              <i class="fa-solid fa-briefcase"></i>
+              Work
+            </button>
+
+            <button class="filter-btn" data-filter="learning" type="button">
+              <i class="fa-solid fa-book"></i>
+              Learning
+            </button>
+
+            <button class="filter-btn" data-filter="personal" type="button">
+              <i class="fa-solid fa-user"></i>
+              Personal
+            </button>
+
+            <button class="filter-btn" data-filter="other" type="button">
+              <i class="fa-solid fa-folder"></i>
+              Other
+            </button>
+          </div>
+        </section>
+
+        <section class="links-container" id="linksContainer"></section>
+      </div>
+
+      <dialog class="link-dialog" id="linkDialog">
+        <div class="dialog-content">
+          <div class="dialog-header">
+            <div>
+              <h2 id="dialogTitle">Add New Link</h2>
+
+              <p>Save an important website to your workspace.</p>
+            </div>
+
+            <button
+              class="dialog-close"
+              id="closeDialog"
+              type="button"
+              aria-label="Close"
+            >
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+
+          <form id="linkForm">
+            <div class="form-group">
+              <label for="linkName"> Link Name </label>
+
+              <input
+                class="form-input"
+                id="linkName"
+                type="text"
+                placeholder="e.g. GitHub"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="linkUrl"> URL </label>
+
+              <input
+                class="form-input"
+                id="linkUrl"
+                type="url"
+                placeholder="https://example.com"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="linkCategory"> Category </label>
+
+              <select class="form-input" id="linkCategory" required>
+                <option value="">Select category</option>
+
+                <option value="work">Work</option>
+
+                <option value="learning">Learning</option>
+
+                <option value="personal">Personal</option>
+
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="dialog-actions">
+              <button class="cancel-btn" id="cancelDialog" type="button">
+                Cancel
+              </button>
+
+              <button class="save-btn" type="submit">Save Link</button>
+            </div>
+          </form>
+        </div>
+      </dialog>
+
+      <div
+        class="link-notification"
+        id="linkNotification"
+        role="status"
+        aria-live="polite"
+      >
+        <i class="fa-solid fa-circle-check"></i>
+
+        <span id="notificationText"></span>
+      </div>
+    </div>
+  </body>
+</html>

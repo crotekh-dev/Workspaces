@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <meta name="theme-color" content="#0a682c" />
+    <link rel="shortcut icon" href="./Assets/icon.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="./fontawesome-free-7.2.0-web/fontawesome-free-7.2.0-web/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./Components/Clock/clock.css" />
+    <script src="./Components/Clock/clock.js" defer></script>
+    <script src="app.js" defer></script>
+    <title>Workspaces</title>
+  </head>
+  <body>
+    <div class="workspace-splash" id="workspaceSplash">
+      <div class="splash-content">
+        <div class="splash-icon">
+          <img src="./Assets/big-img.png" alt="Workspace" />
+        </div>
+
+        <h1>Work smarter.<br />Stay focused.</h1>
+
+        <p>Your space to think, organize and get things done.</p>
+
+        <div class="splash-loader">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <header class="workspace-header">
+        <div class="header-left">
+          <button class="menu-btn" onclick="toggleMenu()">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div class="logo">
+            
+            <img src="./Assets/icon.png" alt="" width="40" height="40" />
+            <span>WORKSPACES</span>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <div class="clock">
+            <ul>
+              <i class="fa-regular fa-clock"></i>
+              <li id="hours"></li>
+              <li id="point">:</li>
+              <li id="mins"></li>
+              <li id="point">:</li>
+              <li id="sec"></li>
+              <li id="day"></li>
+              <div class="vertical"></div>
+              <div id="date">
+                <i class="fa-regular fa-calendar-days"></i>
+                <div id="Date"></div>
+              </div>
+            </ul>
+          </div>
+          <button class="header-icon-btn" title="Notifications">
+            <i class="fa-solid fa-bell"></i>
+            <span class="notification-dot"></span>
+          </button>
+          <button
+            class="theme-toggle-btn"
+            id="theme-switch"
+            title="Toggle theme"
+          >
+            <i class="fa-solid fa-moon"></i>
+          </button>
+          <div class="user-avatar">M</div>
+        </div>
+      </header>
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <h2>Workspaces</h2>
+          <i class="fa-solid fa-ellipsis-vertical"></i>
+        </div>
+        <ul class="sidebar-content">
+          <li class="">
+            <a href="./index.html" class="sidebar-item"
+              ><span>Notes</span><i class="fa-solid fa-note-sticky"></i
+            ></a>
+            <a href="./Components/Todo/todo.html" class="sidebar-item"
+              ><span>Todo</span><i class="fa-solid fa-list-check"></i
+            ></a>
+            <a href="./Components/Stopwatch/stopwatch.html" class="sidebar-item"
+              ><span>Stopwatch</span><i class="fa-solid fa-stopwatch"></i
+            ></a>
+            <a href="./Components/Calendar/calendar.html" class="sidebar-item"
+              ><span>Calendar</span><i class="fa-solid fa-calendar-days"></i
+            ></a>
+            <a
+              href="./Components/Calculator/calculator.html"
+              class="sidebar-item"
+              ><span>Calculator</span><i class="fa-solid fa-calculator"></i
+            ></a>
+            <a href="./Components/Links/links.html" class="sidebar-item"
+              ><span>Links</span><i class="fa-solid fa-link"></i
+            ></a>
+          </li>
+        </ul>
+        <hr />
+        <ul class="sidebar-footer">
+          <li class="">
+            <a href="./Components/About/about.html" class="sidebar-item"
+              ><span>About</span><i class="fa-solid fa-circle-info"></i
+            ></a>
+            <a href="./Components/Forms/bug-report.html" class="sidebar-item"
+              ><span>Report a Bug</span><i class="fa-solid fa-bug"></i
+            ></a>
+            <a
+              href="./Components/Forms/feature-suggest.html"
+              class="sidebar-item"
+              ><span>Suggest a new Feature</span
+              ><i class="fa-solid fa-lightbulb"></i
+            ></a>
+            <a href="./Components/Forms/contact.html" class="sidebar-item"
+              ><span>Contact Developer</span><i class="fa-solid fa-envelope"></i
+            ></a>
+          </li>
+        </ul>
+        <div class="motivational-quote">
+          <img src="" alt="" />
+          <h3>Stay Productive 🚀</h3>
+          <h4>Organize and plan your day with purpose</h4>
+        </div>
+      </aside>
+
+      <div class="welcome-section">
+        <div class="welcome-content">
+          <h2 class="welcome-greeting">
+            Good morning, <span id="welcomeName"></span> 👋
+          </h2>
+
+          <p class="welcome-message" id="welcomeMessage"></p>
+        </div>
+
+        <div class="welcome-icon">
+          <i class="fa-solid fa-sun"></i>
+        </div>
+      </div>
+
+      <div class="notes-section">
+        <div class="notes-header">
+          <h1>My Notes</h1>
+
+          <button
+            class="add-note-main-btn"
+            onclick="openNoteDialog()"
+            title="Add new note"
+          >
+            <i class="fa-solid fa-plus"></i>
+          </button>
+          
+        </div>
+        <div>
+          <p class="note-description">
+            Create, view and manage all your notes.....
+          </p>
+        </div>
+        <div class="filter-tabs">
+          <button
+            class="filter-btn active"
+            onclick="filterNotes('all')"
+            data-filter="all"
+          >
+            <i class="fa-solid fa-list"></i> All Notes
+          </button>
+          <button
+            class="filter-btn"
+            onclick="filterNotes('personal')"
+            data-filter="personal"
+          >
+            <i class="fa-solid fa-heart"></i> Personal
+          </button>
+          <button
+            class="filter-btn"
+            onclick="filterNotes('work')"
+            data-filter="work"
+          >
+            <i class="fa-solid fa-briefcase"></i> Work
+          </button>
+          <button
+            class="filter-btn"
+            onclick="filterNotes('other')"
+            data-filter="other"
+          >
+            <i class="fa-solid fa-circle-question"></i> Other
+          </button>
+        </div>
+      </div>
+
+      <main id="notesContainer" class="notes-grid"></main>
+
+      <dialog id="noteDialog">
+        <div class="dialog-content">
+          <div class="dialog-header">
+            <h2 class="dialog-title" id="dialogTitle">Add New Note</h2>
+            <button class="close-btn" onclick="closeNoteDialog()">✖</button>
+          </div>
+          <form id="noteForm">
+            <div class="form-group">
+              <label for="noteTitle" class="form-label">Title</label>
+              <input
+                type="text"
+                class="form-input"
+                id="noteTitle"
+                placeholder="Enter your note title...."
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="noteContent" class="form-label">Content</label>
+              <textarea
+                class="form-input"
+                id="noteContent"
+                placeholder="Enter your note content...."
+                required
+              ></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="noteCategory" class="form-label">Category</label>
+              <select class="form-input" id="noteCategory" required>
+                <option value="">Select a category</option>
+                <option value="personal">Personal</option>
+                <option value="work">Work</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="dialog-actions">
+              <button
+                type="button"
+                class="cancel-btn"
+                onclick="closeNoteDialog()"
+              >
+                Cancel
+              </button>
+              <button type="submit" class="save-btn">Save Note</button>
+            </div>
+          </form>
+        </div>
+      </dialog>
+    </div>
+  
+    <dialog class="ws-name-dialog" id="nameDialog" aria-labelledby="nameDialogTitle">
+      <form method="dialog" id="nameDialogForm" class="ws-name-card">
+        <div class="ws-name-mark"><i class="fa-solid fa-user"></i></div>
+        <h2 id="nameDialogTitle">Welcome to Workspaces</h2>
+        <p>What should we call you?</p>
+        <label for="workspaceNameInput">Your name</label>
+        <input id="workspaceNameInput" name="workspaceName" type="text" maxlength="40" autocomplete="given-name" placeholder="Enter your name" required />
+        <button type="submit" value="save">Continue <i class="fa-solid fa-arrow-right"></i></button>
+      </form>
+    </dialog>
+    </body>
+</html>
+
+``` Always output in same format as provided. Only provide new or files that
+requires update

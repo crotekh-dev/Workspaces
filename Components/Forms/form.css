@@ -1,0 +1,308 @@
+
+:root {
+  --form-text: #0a0a0a;
+  --form-muted: #52525b;
+  --form-page: #f1f5f9;
+  --form-surface: #fafafa;
+  --form-input: #ffffff;
+  --form-border: #d4d4d8;
+  --form-accent: #0a682c;
+  --form-accent-hover: #085a25;
+  --form-shadow: 0 6px 20px rgba(10, 10, 10, 0.06);
+}
+
+.dark-mode {
+  --form-text: #f1f5f9;
+  --form-muted: #a1a1aa;
+  --form-page: #0a0a0a;
+  --form-surface: #18181b;
+  --form-input: #202023;
+  --form-border: #3f3f46;
+  --form-accent: #0a682c;
+  --form-accent-hover: #0c7a34;
+  --form-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* The shared shell locks the viewport; MAIN is the only form-page scroll region. */
+body {
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.container {
+  height: 100vh;
+  height: 100dvh;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.container > main {
+  grid-column: 2;
+  grid-row: 2 / 5;
+  min-width: 0;
+  min-height: 0;
+  width: 100%;
+  padding: clamp(1rem, 2.5vw, 2rem);
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  scrollbar-gutter: stable;
+  background: var(--form-page);
+}
+
+.form-container {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: clamp(1.1rem, 2vw, 2rem);
+  color: var(--form-text);
+  background: var(--form-surface);
+  border: 1px solid var(--form-border);
+  border-radius: 14px;
+  box-shadow: var(--form-shadow);
+}
+
+.form-container h1 {
+  margin: 0 0 0.4rem;
+  color: var(--form-text);
+  font-size: clamp(1.35rem, 2vw, 1.7rem);
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+}
+
+.form-container > p {
+  margin: 0 0 1.25rem;
+  color: var(--form-muted);
+  font-size: 0.94rem;
+  line-height: 1.5;
+}
+
+.workspace-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem 1rem;
+  align-items: start;
+}
+
+.form-group {
+  min-width: 0;
+  margin: 0;
+}
+
+.form-group label {
+  display: block;
+  margin: 0 0 0.42rem;
+  color: var(--form-text);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  padding: 0.72rem 0.85rem;
+  color: var(--form-text);
+  background: var(--form-input);
+  border: 1px solid var(--form-border);
+  border-radius: 8px;
+  font: inherit;
+  font-size: 0.94rem;
+  line-height: 1.45;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.form-group input {
+  min-height: 44px;
+}
+
+.form-group textarea {
+  min-height: 112px;
+  resize: vertical;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--form-muted);
+  opacity: 0.8;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--form-accent);
+  box-shadow: 0 0 0 3px rgba(10, 104, 44, 0.14);
+}
+
+.form-group:has(textarea),
+.workspace-form .submit-btn {
+  grid-column: 1 / -1;
+}
+
+.attachment-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  min-height: 44px;
+  padding: 0.65rem 0.85rem;
+  color: var(--form-muted);
+  background: var(--form-input);
+  border: 1px dashed var(--form-border);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.92rem;
+  transition: border-color 160ms ease, background 160ms ease;
+}
+
+.attachment-btn i {
+  color: var(--form-accent);
+}
+
+.attachment-btn:hover {
+  border-color: var(--form-accent);
+  background: rgba(10, 104, 44, 0.055);
+}
+
+.submit-btn {
+  width: 100%;
+  min-height: 46px;
+  margin-top: 0.1rem;
+  padding: 0.75rem 1rem;
+  color: #ffffff;
+  background: var(--form-accent);
+  border: 0;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 0.96rem;
+  font-weight: 650;
+  cursor: pointer;
+  transition: background 160ms ease, transform 160ms ease;
+}
+
+.submit-btn:hover {
+  background: var(--form-accent-hover);
+}
+
+.submit-btn:active {
+  transform: translateY(1px);
+}
+
+.submit-btn:focus-visible,
+.attachment-btn:focus-visible {
+  outline: 3px solid rgba(10, 104, 44, 0.25);
+  outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr);
+  }
+
+  .container > main {
+    grid-column: 1;
+    grid-row: 2;
+    padding: 1rem;
+    min-height: 0;
+  }
+
+  .workspace-form {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.85rem;
+  }
+
+  .form-group:has(textarea),
+  .workspace-form .submit-btn {
+    grid-column: auto;
+  }
+
+  .form-container {
+    padding: 1.1rem;
+    border-radius: 11px;
+  }
+
+  .form-group textarea {
+    min-height: 120px;
+  }
+}
+
+@media (max-width: 360px) {
+  .container > main {
+    padding: 0.65rem;
+  }
+
+  .form-container {
+    padding: 0.9rem;
+  }
+
+  .form-container h1 {
+    font-size: 1.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .form-group input,
+  .form-group textarea,
+  .attachment-btn,
+  .submit-btn {
+    transition: none;
+  }
+}
+
+.attachment-group { grid-column: 1 / -1; }
+.attachment-btn { position: relative; overflow: hidden; }
+.attachment-btn input[type="file"] {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+.attachment-label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.optional-label,
+.attachment-help {
+  color: var(--form-muted);
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+.attachment-help { display: block; margin-top: 0.4rem; line-height: 1.4; }
+.form-status {
+  grid-column: 1 / -1;
+  padding: 0.85rem 1rem;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.form-status[hidden] { display: none; }
+.form-status.success {
+  color: #176b35;
+  background: rgba(10, 104, 44, 0.09);
+  border-color: rgba(10, 104, 44, 0.28);
+}
+.form-status.error {
+  color: #b42318;
+  background: rgba(220, 38, 38, 0.08);
+  border-color: rgba(220, 38, 38, 0.25);
+}
+.dark-mode .form-status.success { color: #9be5b2; }
+.dark-mode .form-status.error { color: #ffaaa5; }
+.submit-btn:disabled {
+  opacity: 0.72;
+  cursor: wait;
+  transform: none;
+}
+.submit-btn.is-loading { pointer-events: none; }
+@media (max-width: 768px) {
+  .attachment-group,
+  .form-status { grid-column: auto; }
+}

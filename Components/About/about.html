@@ -1,0 +1,598 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="manifest" href="../../manifest.webmanifest" />
+    <meta name="theme-color" content="#0a682c" />
+    <link
+      rel="stylesheet"
+      href="../../fontawesome-free-7.2.0-web/fontawesome-free-7.2.0-web/css/all.min.css"
+    />
+    <link
+      rel="shortcut icon"
+      href="../../Assets/icon.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="../Clock/clock.css" />
+    <link rel="stylesheet" href="about.css" />
+    <script src="../Clock/clock.js" defer></script>
+    <script src="../../app.js" defer></script>
+    <script src="about.js" defer></script>
+    <title>Workspaces</title>
+  </head>
+  <body>
+      <div class="workspace-splash" id="workspaceSplash">
+      <div class="splash-content">
+        <div class="splash-icon">
+          <img src="../../Assets/big-img.png" alt="Workspace" />
+        </div>
+
+        <h1>Work smarter.<br />Stay focused.</h1>
+
+        <p>Your space to think, organize and get things done.</p>
+
+        <div class="splash-loader">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <header class="workspace-header">
+        <div class="header-left">
+          <button class="menu-btn" onclick="toggleMenu()">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div class="logo">
+            
+               <img src="../../Assets/icon.png" alt="" width="40" height="40" />
+            <span>WORKSPACES</span>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <div class="clock">
+            <ul>
+              <i class="fa-regular fa-clock"></i>
+              <li id="hours"></li>
+              <li id="point">:</li>
+              <li id="mins"></li>
+              <li id="point">:</li>
+              <li id="sec"></li>
+              <li id="day"></li>
+              <div class="vertical"></div>
+              <div id="date">
+                <i class="fa-regular fa-calendar-days"></i>
+                <div id="Date"></div>
+              </div>
+            </ul>
+          </div>
+          <button class="header-icon-btn" title="Notifications">
+            <i class="fa-solid fa-bell"></i>
+            <span class="notification-dot"></span>
+          </button>
+          <button
+            class="theme-toggle-btn"
+            id="theme-switch"
+            title="Toggle theme"
+          >
+            <i class="fa-solid fa-moon"></i>
+          </button>
+          <div class="user-avatar">R</div>
+        </div>
+      </header>
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <h2>Workspaces</h2>
+          <i class="fa-solid fa-ellipsis-vertical"></i>
+        </div>
+        <ul class="sidebar-content">
+          <li class="">
+            <a href="../../index.html" class="sidebar-item"
+              ><span>Notes</span><i class="fa-solid fa-note-sticky"></i
+            ></a>
+            <a href="../Todo/todo.html" class="sidebar-item"
+              ><span>Todo</span><i class="fa-solid fa-list-check"></i
+            ></a>
+            <a href="../Stopwatch/stopwatch.html" class="sidebar-item"
+              ><span>Stopwatch</span><i class="fa-solid fa-stopwatch"></i
+            ></a>
+            <a href="../Calendar/calendar.html" class="sidebar-item"
+              ><span>Calendar</span><i class="fa-solid fa-calendar-days"></i
+            ></a>
+            <a href="../Calculator/calculator.html" class="sidebar-item"
+              ><span>Calculator</span><i class="fa-solid fa-calculator"></i
+            ></a>
+            <a href="../Links/links.html" class="sidebar-item"
+              ><span>Links</span><i class="fa-solid fa-link"></i
+            ></a>
+          </li>
+        </ul>
+        <hr />
+       <ul class="sidebar-footer">
+          <li class="">
+            <a href="../../Components/About/about.html" class="sidebar-item"
+              ><span>About</span><i class="fa-solid fa-circle-info"></i
+            ></a>
+            <a href="../../Components/Forms/bug-report.html" class="sidebar-item"
+              ><span>Report a Bug</span><i class="fa-solid fa-bug"></i
+            ></a>
+            <a
+              href="../../Components/Forms/feature-suggest.html"
+              class="sidebar-item"
+              ><span>Suggest a new Feature</span
+              ><i class="fa-solid fa-lightbulb"></i
+            ></a>
+            <a href="../../Components/Forms/contact.html" class="sidebar-item"
+              ><span>Contact Developer</span><i class="fa-solid fa-envelope"></i
+            ></a>
+          </li>
+        </ul>
+        <div class="motivational-quote">
+          <img src="" alt="" />
+          <h3>Stay Productive 🚀</h3>
+          <h4>Organize and plan your day with purpose</h4>
+        </div>
+      </aside>
+     <main>
+        <div class="about-page">
+          
+          <section class="ab-hero ab-card" aria-labelledby="about-title">
+            <div class="ab-hero-copy">
+              <span class="ab-eyebrow"><i class="fa-solid fa-bolt" aria-hidden="true"></i>Productivity, built for the remote future</span>
+              <h1 id="about-title">Your work, <span class="ab-grad">wherever you are.</span></h1>
+              <p class="ab-lead">
+                Workspaces brings your notes, tasks, time and plans into one calm, fast place.
+                It starts as a personal productivity hub today and is being built to grow into a
+                home for remote teams, where admins manage and employees collaborate without a
+                physical office.
+              </p>
+              <ul class="ab-badges">
+                <li class="ab-badge"><i class="fa-solid fa-wifi" aria-hidden="true"></i>Offline-first</li>
+                <li class="ab-badge"><i class="fa-solid fa-user-check" aria-hidden="true"></i>No sign-up</li>
+                <li class="ab-badge"><i class="fa-solid fa-lock" aria-hidden="true"></i>Your data stays on your device</li>
+              </ul>
+              <div class="ab-actions">
+                <a class="ab-btn ab-btn--primary" href="#tools">Explore the tools <i class="fa-solid fa-arrow-down" aria-hidden="true"></i></a>
+                <a class="ab-btn ab-btn--ghost" href="#story">Read the story</a>
+              </div>
+            </div>
+            <div class="ab-hero-visual" aria-hidden="true">
+              <div class="ab-mock">
+                <div class="ab-mock-bar"><span></span><span></span><span></span><b>Today</b></div>
+                <ul class="ab-mock-list">
+                  <li class="is-done"><i class="fa-solid fa-circle-check"></i>Plan the week</li>
+                  <li class="is-done"><i class="fa-solid fa-circle-check"></i>Write the project brief</li>
+                  <li><i class="fa-regular fa-circle"></i>Team check-in at 3:00</li>
+                </ul>
+                <div class="ab-mock-progress"><span></span></div>
+                <div class="ab-mock-row">
+                  <span class="ab-chip"><i class="fa-solid fa-stopwatch"></i>00:25:00</span>
+                  <span class="ab-chip"><i class="fa-regular fa-calendar-days"></i>3 events</span>
+                </div>
+              </div>
+              <div class="ab-float"><i class="fa-solid fa-users"></i>Teams: coming soon</div>
+            </div>
+          </section>
+
+          <section class="ab-section ab-tools" id="tools" aria-labelledby="tools-title">
+            <header class="ab-head ab-reveal">
+              <span class="ab-eyebrow">The toolkit</span>
+              <h2 id="tools-title">How to use each tool</h2>
+              <p>Six focused tools, each simple on its own and built to work together. Pick one to see how it works.</p>
+            </header>
+            <div class="ab-tabs ab-reveal" role="tablist" aria-label="Workspaces tools">
+            <button class="ab-tab" type="button" role="tab" id="tab-notes" aria-controls="panel-notes" aria-selected="true">
+              <i class="fa-solid fa-note-sticky" aria-hidden="true"></i>Notes
+            </button>
+            <button class="ab-tab" type="button" role="tab" id="tab-todo" aria-controls="panel-todo" aria-selected="false" tabindex="-1">
+              <i class="fa-solid fa-list-check" aria-hidden="true"></i>Todo
+            </button>
+            <button class="ab-tab" type="button" role="tab" id="tab-stopwatch" aria-controls="panel-stopwatch" aria-selected="false" tabindex="-1">
+              <i class="fa-solid fa-stopwatch" aria-hidden="true"></i>Stopwatch
+            </button>
+            <button class="ab-tab" type="button" role="tab" id="tab-calendar" aria-controls="panel-calendar" aria-selected="false" tabindex="-1">
+              <i class="fa-solid fa-calendar-days" aria-hidden="true"></i>Calendar
+            </button>
+            <button class="ab-tab" type="button" role="tab" id="tab-calculator" aria-controls="panel-calculator" aria-selected="false" tabindex="-1">
+              <i class="fa-solid fa-calculator" aria-hidden="true"></i>Calculator
+            </button>
+            <button class="ab-tab" type="button" role="tab" id="tab-links" aria-controls="panel-links" aria-selected="false" tabindex="-1">
+              <i class="fa-solid fa-link" aria-hidden="true"></i>Links
+            </button>
+            </div>
+            <div class="ab-panels ab-reveal">
+          <article class="ab-panel ab-card" role="tabpanel" id="panel-notes" aria-labelledby="tab-notes">
+            <figure class="ab-shot" style="margin:0">
+              <div class="ab-shot-bar" aria-hidden="true">
+                <span></span><span></span><span></span>
+                <em>workspaces / notes</em>
+              </div>
+              <div class="ab-shot-body">
+                <div class="ab-shot-ph" aria-hidden="true">
+                  <i class="fa-solid fa-note-sticky"></i>
+                  <span>Notes preview</span>
+                </div>
+                <img data-shot="notes" alt="Screenshot of the Notes tool in Workspaces" decoding="async" hidden />
+              </div>
+            </figure>
+            <div class="ab-panel-copy">
+              <div class="ab-panel-title">
+                <i class="fa-solid fa-note-sticky" aria-hidden="true"></i>
+                <h3>Notes</h3>
+              </div>
+              <p>Capture ideas the moment they arrive. Notes keeps every thought in one place, saved on your device so it is there when you come back.</p>
+              <ol class="ab-steps">
+                <li>Open a new note from the add button.</li>
+                <li>Give it a title, write your content and save it.</li>
+                <li>Reopen any note to edit it or delete it, and use the filter to narrow your list.</li>
+              </ol>
+              <p class="ab-tip"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i><span>Your notes stay on this device, even after you close the tab.</span></p>
+              <a class="ab-btn ab-btn--primary" href="../../index.html">Open Notes <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </article>
+          <article class="ab-panel ab-card" role="tabpanel" id="panel-todo" aria-labelledby="tab-todo">
+            <figure class="ab-shot" style="margin:0">
+              <div class="ab-shot-bar" aria-hidden="true">
+                <span></span><span></span><span></span>
+                <em>workspaces / todo</em>
+              </div>
+              <div class="ab-shot-body">
+                <div class="ab-shot-ph" aria-hidden="true">
+                  <i class="fa-solid fa-list-check"></i>
+                  <span>Todo preview</span>
+                </div>
+                <img data-shot="todo" alt="Screenshot of the Todo tool in Workspaces" decoding="async" hidden />
+              </div>
+            </figure>
+            <div class="ab-panel-copy">
+              <div class="ab-panel-title">
+                <i class="fa-solid fa-list-check" aria-hidden="true"></i>
+                <h3>Todo</h3>
+              </div>
+              <p>Turn a busy day into a short, clear list. Todo helps you add tasks, set priorities and watch your progress grow.</p>
+              <ol class="ab-steps">
+                <li>Type a task into &ldquo;Add a new task&rdquo; and add it.</li>
+                <li>Set its priority and reorder tasks so the important ones come first.</li>
+                <li>Tick tasks off to track progress, and switch between all and completed.</li>
+              </ol>
+              <p class="ab-tip"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i><span>Finish everything on your list and Workspaces celebrates with you.</span></p>
+              <a class="ab-btn ab-btn--primary" href="../Todo/todo.html">Open Todo <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </article>
+          <article class="ab-panel ab-card" role="tabpanel" id="panel-stopwatch" aria-labelledby="tab-stopwatch">
+            <figure class="ab-shot" style="margin:0">
+              <div class="ab-shot-bar" aria-hidden="true">
+                <span></span><span></span><span></span>
+                <em>workspaces / stopwatch</em>
+              </div>
+              <div class="ab-shot-body">
+                <div class="ab-shot-ph" aria-hidden="true">
+                  <i class="fa-solid fa-stopwatch"></i>
+                  <span>Stopwatch preview</span>
+                </div>
+                <img data-shot="stopwatch" alt="Screenshot of the Stopwatch tool in Workspaces" decoding="async" hidden />
+              </div>
+            </figure>
+            <div class="ab-panel-copy">
+              <div class="ab-panel-title">
+                <i class="fa-solid fa-stopwatch" aria-hidden="true"></i>
+                <h3>Stopwatch</h3>
+              </div>
+              <p>Three time tools in one place: a stopwatch for tracking effort, a countdown timer for focused sessions and alarms to keep you on schedule.</p>
+              <ol class="ab-steps">
+                <li>Choose Stopwatch, Timer or Alarm from the tabs.</li>
+                <li>Start, pause and reset the stopwatch, or set a countdown and let it run.</li>
+                <li>Add an alarm with a label so you always know what it is for.</li>
+              </ol>
+              <p class="ab-tip"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i><span>Timers and alarms ring while the Workspaces tab stays open, so keep it open in the background.</span></p>
+              <a class="ab-btn ab-btn--primary" href="../Stopwatch/stopwatch.html">Open Stopwatch <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </article>
+          <article class="ab-panel ab-card" role="tabpanel" id="panel-calendar" aria-labelledby="tab-calendar">
+            <figure class="ab-shot" style="margin:0">
+              <div class="ab-shot-bar" aria-hidden="true">
+                <span></span><span></span><span></span>
+                <em>workspaces / calendar</em>
+              </div>
+              <div class="ab-shot-body">
+                <div class="ab-shot-ph" aria-hidden="true">
+                  <i class="fa-solid fa-calendar-days"></i>
+                  <span>Calendar preview</span>
+                </div>
+                <img data-shot="calendar" alt="Screenshot of the Calendar tool in Workspaces" decoding="async" hidden />
+              </div>
+            </figure>
+            <div class="ab-panel-copy">
+              <div class="ab-panel-title">
+                <i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
+                <h3>Calendar</h3>
+              </div>
+              <p>See your month at a glance and plan with purpose. Create events with a time and notes, and keep your next commitments in view.</p>
+              <ol class="ab-steps">
+                <li>Select a day or the add button to create an event with a title, date and start time.</li>
+                <li>Search your events, or use &ldquo;Go to date&rdquo; to jump anywhere in the calendar.</li>
+                <li>Check &ldquo;Next events&rdquo; to see what is coming up.</li>
+              </ol>
+              <p class="ab-tip"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i><span>Events can be exported as an .ics file to use in other calendar apps.</span></p>
+              <a class="ab-btn ab-btn--primary" href="../Calendar/calendar.html">Open Calendar <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </article>
+          <article class="ab-panel ab-card" role="tabpanel" id="panel-calculator" aria-labelledby="tab-calculator">
+            <figure class="ab-shot" style="margin:0">
+              <div class="ab-shot-bar" aria-hidden="true">
+                <span></span><span></span><span></span>
+                <em>workspaces / calculator</em>
+              </div>
+              <div class="ab-shot-body">
+                <div class="ab-shot-ph" aria-hidden="true">
+                  <i class="fa-solid fa-calculator"></i>
+                  <span>Calculator preview</span>
+                </div>
+                <img data-shot="calculator" alt="Screenshot of the Calculator tool in Workspaces" decoding="async" hidden />
+              </div>
+            </figure>
+            <div class="ab-panel-copy">
+              <div class="ab-panel-title">
+                <i class="fa-solid fa-calculator" aria-hidden="true"></i>
+                <h3>Calculator</h3>
+              </div>
+              <p>More than basic maths: a standard and a scientific calculator, percentage tools, unit and currency converters, and a history of your calculations.</p>
+              <ol class="ab-steps">
+                <li>Choose Standard or Scientific mode.</li>
+                <li>Use Percentage Tools, the Unit Converter or the Currency Converter for everyday conversions.</li>
+                <li>Look back at past results in Calculation History.</li>
+              </ol>
+              <p class="ab-tip"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i><span>For currencies, enter a custom rate to use today&rsquo;s exact exchange rate.</span></p>
+              <a class="ab-btn ab-btn--primary" href="../Calculator/calculator.html">Open Calculator <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </article>
+          <article class="ab-panel ab-card" role="tabpanel" id="panel-links" aria-labelledby="tab-links">
+            <figure class="ab-shot" style="margin:0">
+              <div class="ab-shot-bar" aria-hidden="true">
+                <span></span><span></span><span></span>
+                <em>workspaces / links</em>
+              </div>
+              <div class="ab-shot-body">
+                <div class="ab-shot-ph" aria-hidden="true">
+                  <i class="fa-solid fa-link"></i>
+                  <span>Links preview</span>
+                </div>
+                <img data-shot="links" alt="Screenshot of the Links tool in Workspaces" decoding="async" hidden />
+              </div>
+            </figure>
+            <div class="ab-panel-copy">
+              <div class="ab-panel-title">
+                <i class="fa-solid fa-link" aria-hidden="true"></i>
+                <h3>Links</h3>
+              </div>
+              <p>Keep the sites you use every day one tap away. Save links with a name and a category, then search or filter to find them fast.</p>
+              <ol class="ab-steps">
+                <li>Select &ldquo;Add New Link&rdquo; and enter a name, a URL and a category.</li>
+                <li>Save it and it appears in &ldquo;Your Links&rdquo;.</li>
+                <li>Search or filter by category to jump straight to what you need.</li>
+              </ol>
+              <p class="ab-tip"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i><span>Include the full address starting with https:// so the link opens correctly.</span></p>
+              <a class="ab-btn ab-btn--primary" href="../Links/links.html">Open Links <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </article>
+            </div>
+          </section>
+
+          <section class="ab-section" id="story" aria-labelledby="story-title">
+            <div class="ab-story ab-card ab-reveal">
+              <header class="ab-head">
+                <span class="ab-eyebrow">The story</span>
+                <h2 id="story-title">The story of Workspaces</h2>
+              </header>
+              <div class="ab-story-text">
+                <p>
+                  Work is leaving the office. Teams are spread across cities and time zones, yet the
+                  tools they rely on are scattered across a dozen tabs. Workspaces starts from a
+                  simple belief: a workspace should be somewhere you can open from anywhere, not a
+                  building you have to travel to.
+                </p>
+                <p>
+                  That future will not arrive in one release, so it is being built in stages. Today,
+                  Workspaces is a fast personal hub that gets the fundamentals right: notes, tasks,
+                  time, plans and links. Each tool is deliberately small and focused, because the
+                  habits people build alone are the habits teams will later share.
+                </p>
+              </div>
+              <div class="ab-roadmap">
+                <ol class="ab-timeline" aria-label="Workspaces roadmap">
+            <li class="ab-stage" data-status="live">
+              <div class="ab-stage-card">
+                <span class="ab-status">Live</span>
+                <h3>Stage 1: Your personal workspace</h3>
+                <p>Notes, Todo, Stopwatch and timers, Calendar, Calculator and Links, working offline and saved on your own device.</p>
+              </div>
+            </li>
+            <li class="ab-stage" data-status="next">
+              <div class="ab-stage-card">
+                <span class="ab-status">Next</span>
+                <h3>Stage 2: Accounts and sync</h3>
+                <p>Sign in and pick up your workspace on any device, with secure cloud backup.</p>
+              </div>
+            </li>
+            <li class="ab-stage" data-status="planned">
+              <div class="ab-stage-card">
+                <span class="ab-status">Planned</span>
+                <h3>Stage 3: Teams</h3>
+                <p>Shared workspaces where people can assign tasks, share calendars and work on notes together.</p>
+              </div>
+            </li>
+            <li class="ab-stage" data-status="planned">
+              <div class="ab-stage-card">
+                <span class="ab-status">Planned</span>
+                <h3>Stage 4: Admin management</h3>
+                <p>Roles and permissions, progress dashboards and reports, so admins can guide the work without micromanaging it.</p>
+              </div>
+            </li>
+            <li class="ab-stage" data-status="vision">
+              <div class="ab-stage-card">
+                <span class="ab-status">Vision</span>
+                <h3>Stage 5: Remote-first</h3>
+                <p>Presence, time zones, time tracking and async updates, so teams work together with no physical location at all.</p>
+              </div>
+            </li>
+                </ol>
+              </div>
+              <p class="ab-note">Roadmap stages are plans, and timing may change as Workspaces grows.</p>
+              <div class="ab-bridge-head">
+                <h3>How today&rsquo;s app points toward that future</h3>
+                <p>Every tool you can use now is a first step toward something a remote team will need.</p>
+              </div>
+              <ul class="ab-bridge">
+            <li class="ab-spot"><small><i class="fa-solid fa-stopwatch" aria-hidden="true"></i>Stopwatch today</small><strong>Time tracking and timesheets</strong></li>
+            <li class="ab-spot"><small><i class="fa-solid fa-calendar-days" aria-hidden="true"></i>Calendar today</small><strong>Team scheduling across time zones</strong></li>
+            <li class="ab-spot"><small><i class="fa-solid fa-list-check" aria-hidden="true"></i>Todo today</small><strong>Task assignment and progress reports</strong></li>
+            <li class="ab-spot"><small><i class="fa-solid fa-note-sticky" aria-hidden="true"></i>Notes today</small><strong>Shared documents and updates</strong></li>
+            <li class="ab-spot"><small><i class="fa-solid fa-link" aria-hidden="true"></i>Links today</small><strong>Shared team resources</strong></li>
+            <li class="ab-spot"><small><i class="fa-solid fa-envelope" aria-hidden="true"></i>Forms today</small><strong>A direct feedback loop with users</strong></li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="ab-section" aria-label="Your Workspaces so far">
+            <div class="ab-stats ab-card ab-reveal">
+              <div class="ab-stat ab-spot"><strong data-stat="notes">0</strong><span>Notes saved</span></div>
+              <div class="ab-stat ab-spot"><strong data-stat="tasks">0</strong><span>Tasks completed</span></div>
+              <div class="ab-stat ab-spot"><strong data-stat="events">0</strong><span>Events planned</span></div>
+              <div class="ab-stat ab-spot"><strong data-stat="links">0</strong><span>Links saved</span></div>
+              <p class="ab-stats-note">Counted live from this device. Nothing is uploaded.</p>
+            </div>
+          </section>
+
+          <section class="ab-section" id="creator" aria-labelledby="creator-title">
+            <div class="ab-creator ab-card ab-reveal">
+              <figure class="ab-photo" style="margin:0 auto">
+                <div class="ab-photo-frame">
+                  <img src="../../Assets/About/raymond.jpg" alt="Portrait of Odu Raymond Chibuike" width="900" height="1125" loading="lazy" decoding="async" />
+                  <figcaption class="ab-roles">
+                    <span>Front-End Developer</span>
+                    <span>UI/UX Designer</span>
+                    <span>Content Creator</span>
+                  </figcaption>
+                </div>
+              </figure>
+              <div class="ab-creator-copy">
+                <span class="ab-eyebrow">Meet the creator</span>
+                <h2 id="creator-title">Odu Raymond Chibuike</h2>
+                <p>
+                  I&rsquo;m a front-end developer, UI/UX designer and content creator based in
+                  Nigeria. I turn ideas into modern, responsive interfaces that are visually
+                  refined, accessible and fast, using HTML, CSS, JavaScript and React.
+                </p>
+                <p>
+                  Workspaces is where I put that into practice: a product designed around real
+                  everyday work, and built step by step toward a future where teams work together
+                  from anywhere. I also share what I learn online as @TechWithRaymond.
+                </p>
+                <ul class="ab-skills" aria-label="Tech stack">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+              <li>React</li>
+              <li>Tailwind CSS</li>
+              <li>Git &amp; GitHub</li>
+              <li>Vercel</li>
+                </ul>
+                <div class="ab-actions">
+                  <a class="ab-btn ab-btn--primary" href="https://oduraymondchibuikeportfolio.vercel.app/" target="_blank" rel="noopener noreferrer">View my portfolio <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                  <a class="ab-btn ab-btn--ghost" href="https://oduraymondchibuikeportfolio.vercel.app/Assets/CV/Odu%20Raymond%20Chibuike%20CV%20.pdf" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i>Download my CV</a>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="ab-section" id="contact" aria-labelledby="contact-title">
+            <div class="ab-contact ab-card ab-reveal">
+              <header class="ab-head">
+                <span class="ab-eyebrow">Get in touch</span>
+                <h2 id="contact-title">Let&rsquo;s connect</h2>
+                <p>
+                  Whether it&rsquo;s a question about Workspaces, an idea for a project or a
+                  collaboration, I&rsquo;d be glad to hear from you. Every great project starts with
+                  a conversation.
+                </p>
+              </header>
+              <ul class="ab-links">
+            <li><a class="ab-link ab-spot" href="mailto:raymonodg@gmail.com">
+              <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+              <span class="ab-link-text"><strong>Email</strong><span>raymonodg@gmail.com</span></span>
+              <i class="fa-solid fa-arrow-up-right-from-square ab-go" aria-hidden="true"></i>
+            </a></li>
+            <li><a class="ab-link ab-spot" href="https://wa.link/848bq2" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+              <span class="ab-link-text"><strong>WhatsApp</strong><span>Chat with me directly</span></span>
+              <i class="fa-solid fa-arrow-up-right-from-square ab-go" aria-hidden="true"></i>
+            </a></li>
+            <li><a class="ab-link ab-spot" href="tel:+2349169161440">
+              <i class="fa-solid fa-phone" aria-hidden="true"></i>
+              <span class="ab-link-text"><strong>Phone</strong><span>+234 916 916 1440</span></span>
+              <i class="fa-solid fa-arrow-up-right-from-square ab-go" aria-hidden="true"></i>
+            </a></li>
+            <li><a class="ab-link ab-spot" href="https://oduraymondchibuikeportfolio.vercel.app/" target="_blank" rel="noopener noreferrer">
+              <i class="fa-solid fa-globe" aria-hidden="true"></i>
+              <span class="ab-link-text"><strong>Portfolio</strong><span>oduraymondchibuikeportfolio.vercel.app</span></span>
+              <i class="fa-solid fa-arrow-up-right-from-square ab-go" aria-hidden="true"></i>
+            </a></li>
+            <li><a class="ab-link ab-spot" href="https://x.com/TechWithRaymond" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+              <span class="ab-link-text"><strong>X</strong><span>@TechWithRaymond</span></span>
+              <i class="fa-solid fa-arrow-up-right-from-square ab-go" aria-hidden="true"></i>
+            </a></li>
+            <li><a class="ab-link ab-spot" href="https://www.instagram.com/techwithraymond?igsh=MTQ0NXduMXBoaWZkag" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+              <span class="ab-link-text"><strong>Instagram</strong><span>@techwithraymond</span></span>
+              <i class="fa-solid fa-arrow-up-right-from-square ab-go" aria-hidden="true"></i>
+            </a></li>
+            <li><a class="ab-link ab-spot" href="https://www.tiktok.com/@techwithraymond5?_r=1&amp;_t=ZS-975LdaBm4TF" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-tiktok" aria-hidden="true"></i>
+              <span class="ab-link-text"><strong>TikTok</strong><span>@techwithraymond5</span></span>
+              <i class="fa-solid fa-arrow-up-right-from-square ab-go" aria-hidden="true"></i>
+            </a></li>
+            <li><a class="ab-link ab-spot" href="https://youtube.com/@techwithraymond?si=tY1joc6x4R10bSQJ" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+              <span class="ab-link-text"><strong>YouTube</strong><span>@techwithraymond</span></span>
+              <i class="fa-solid fa-arrow-up-right-from-square ab-go" aria-hidden="true"></i>
+            </a></li>
+            <li><a class="ab-link ab-spot" href="https://www.facebook.com/share/19EHFvQNpi/" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+              <span class="ab-link-text"><strong>Facebook</strong><span>Follow on Facebook</span></span>
+              <i class="fa-solid fa-arrow-up-right-from-square ab-go" aria-hidden="true"></i>
+            </a></li>
+              </ul>
+              <section class="ab-install ab-card" id="install-app" aria-labelledby="install-app-title">
+                <div class="ab-install-icon"><i class="fa-solid fa-download" aria-hidden="true"></i></div>
+                <div class="ab-install-copy">
+                  <span class="ab-eyebrow">Take it with you</span>
+                  <h3 id="install-app-title">Install Workspaces</h3>
+                  <p>Add Workspaces to your device for a full-screen app experience. Your workspace stays available offline after the first visit.</p>
+                </div>
+                <button class="ab-btn ab-btn--primary" id="installAppButton" type="button">
+                  <i class="fa-solid fa-download" aria-hidden="true"></i> Download app
+                </button>
+                <p class="ab-install-hint" id="installAppHint" aria-live="polite">Available on supported browsers. On iPhone, use Share → Add to Home Screen.</p>
+              </section>
+              <div class="ab-contact-foot">
+                <p>Using Workspaces and have feedback? Tell me what is working and what is not.</p>
+                <div class="ab-actions">
+                  <a class="ab-btn ab-btn--primary" href="../Forms/contact.html"><i class="fa-solid fa-envelope" aria-hidden="true"></i>Contact developer</a>
+                  <a class="ab-btn ab-btn--ghost" href="../Forms/feature-suggest.html"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i>Suggest a feature</a>
+                  <a class="ab-btn ab-btn--ghost" href="../Forms/bug-report.html"><i class="fa-solid fa-bug" aria-hidden="true"></i>Report a bug</a>
+                </div>
+              </div>
+            </div>
+            <p class="ab-copy">&copy; 2026 Odu Raymond Chibuike. All rights reserved.</p>
+          </section>
+        </div>
+      </main>
+      </div>
+    </div>
+  </body>
+</html>
